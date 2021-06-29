@@ -14,5 +14,19 @@ class App < Sinatra::Base
   end
 
   # Code your final two routes here:
+  get "/goodbye/:name" do
+    @user_name = params[:name]
+    "Goodbye, #{@user_name}."
+  end
+
+  # struggled with the output. Realized it had to be a string
+  # by looking at https://github.com/vtsowell/sinatra-dynamic-routes-codealong-v-000/blob/master/app.rb
+  # thank you Victoria Sowell :)
+  get "/multiply/:num1/:num2" do
+    @num1 = params[:num1]
+    @num2 = params[:num2]
+    product = @num1.to_i * @num2.to_i
+    "#{product}"
+  end
 
 end
